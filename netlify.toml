@@ -1,0 +1,23 @@
+[[redirects]]
+  from = "/ubemex-oaxaca"
+  to = "/ubemex-oaxaca/index.html"
+  status = 200
+[[redirects]]
+  from = "/narrativas"
+  to = "/narrativas/index.html"
+  status = 200
+[[redirects]]
+  from = "/anunciarse"
+  to = "/anunciarse/index.html"
+  status = 200
+[[redirects]]
+  from = "/blog"
+  to = "/blog/index.html"
+  status = 200
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
