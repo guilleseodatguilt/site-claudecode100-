@@ -256,6 +256,7 @@ function subscribe(){
   openWA();
 }
 window.addEventListener('scroll',()=>document.querySelector('nav')?.classList.toggle('slim',scrollY>60),{passive:true});
+if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js',{scope:'/'}).catch(e=>console.warn('[SW]',e)));
 </script>
 </body>
 </html>

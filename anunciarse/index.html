@@ -312,6 +312,7 @@ document.querySelectorAll('.rv').forEach((el,i)=>{
   io.observe(el);
   setTimeout(()=>el.classList.add('in'),200+i*80);
 });
+if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js',{scope:'/'}).catch(e=>console.warn('[SW]',e)));
 </script>
 </body>
 </html>

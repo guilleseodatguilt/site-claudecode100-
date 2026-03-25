@@ -406,6 +406,7 @@ window.addEventListener('scroll',()=>{
   });
 },{passive:true});
 function openWA(){window.open('https://wa.me/525588069072?text=Hola%20INMERXIA%2C%20le%C3%AD%20el%20art%C3%ADculo%20sobre%20gemelos%20digitales%20y%20quiero%20una%20consulta.','_blank');}
+if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js',{scope:'/'}).catch(e=>console.warn('[SW]',e)));
 </script>
 </body>
 </html>
