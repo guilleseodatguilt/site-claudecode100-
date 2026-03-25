@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Simulador de Impacto — ¿Cuánto más vale tu proyecto con Gemelo Digital? · INMERXIA</title>
+<meta name="description" content="Descubre en 60 segundos cuánto más rápido vendes y cuánto más ganas con un gemelo digital para tu proyecto inmobiliario. Calculadora gratuita de INMERXIA.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://inmerxia.com.mx/simulador/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="¿Cuánto más vale tu proyecto con Gemelo Digital? — INMERXIA">
+<meta property="og:description" content="Simulador gratuito: calcula el impacto real de renders 8K, tours 360° e IA en tus ventas. Resultado en 60 segundos.">
+<meta property="og:image" content="https://inmerxia.com.mx/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="INMERXIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="¿Cuánto más vale tu proyecto con Gemelo Digital? — INMERXIA">
+<meta name="twitter:description" content="Calcula en 60 segundos el impacto de un gemelo digital en tus ventas.">
+<meta name="twitter:image" content="https://inmerxia.com.mx/og-image.jpg">
+<meta name="theme-color" content="#050508">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Simulador de Impacto Gemelo Digital — INMERXIA","applicationCategory":"BusinessApplication","description":"Calcula cuánto más vale y más rápido vende tu proyecto inmobiliario con gemelo digital.","url":"https://inmerxia.com.mx/simulador/","publisher":{"@type":"Organization","name":"INMERXIA","url":"https://inmerxia.com.mx"},"offers":{"@type":"Offer","price":"0","priceCurrency":"MXN"}}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050508;--deep:#08080e;--panel:#0c0c14;
+  --b1:rgba(255,255,255,.06);--b2:rgba(255,255,255,.11);--b3:rgba(255,255,255,.18);
+  --led:#b6dcff;--ledg:rgba(182,220,255,.1);
+  --t:#e2e4ef;--dim:rgba(226,228,239,.5);--dimmer:rgba(226,228,239,.28);
+  --gold:#c4a45e;--green:#4ade80;--red:#f87171;--amber:#fbbf24;
+  --fd:'Bebas Neue',sans-serif;--fs:'Cormorant Garamond',serif;--fm:'DM Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{color:var(--t);font-family:var(--fs);overflow-x:hidden;min-height:100vh}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2rem;border-bottom:1px solid var(--b1);position:sticky;top:0;z-index:99;background:rgba(5,5,8,.95);backdrop-filter:blur(14px)}
+.logo{font-family:var(--fd);font-size:1.4rem;letter-spacing:.15em;color:var(--led);text-decoration:none}
+.nav-back{font-family:var(--fm);font-size:.62rem;color:var(--dim);text-decoration:none;letter-spacing:.1em;border:1px solid var(--b2);padding:.3rem .7rem;border-radius:2px;transition:all .2s}
+.nav-back:hover{color:var(--led);border-color:var(--led)}
+
+/* HERO */
+.hero{text-align:center;padding:4.5rem 1.5rem 3rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% -10%,rgba(182,220,255,.08),transparent 65%),radial-gradient(ellipse 40% 30% at 85% 70%,rgba(196,164,94,.05),transparent);pointer-events:none}
+.hero-pill{display:inline-block;font-family:var(--fm);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--led);border:1px solid rgba(182,220,255,.2);padding:.3rem .9rem;border-radius:20px;margin-bottom:1.4rem;background:rgba(182,220,255,.04)}
+.hero h1{font-family:var(--fd);font-size:clamp(2.6rem,8vw,5.5rem);letter-spacing:.05em;line-height:.92;color:#fff;margin-bottom:1.2rem}
+.hero h1 em{color:var(--led);font-style:normal}
+.hero h1 .gold{color:var(--gold)}
+.hero-sub{font-family:var(--fs);font-style:italic;font-size:1.1rem;color:var(--dim);max-width:520px;margin:0 auto 2rem;line-height:1.65}
+.hero-trust{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
+.trust-item{font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;color:var(--dimmer);text-transform:uppercase;display:flex;align-items:center;gap:.4rem}
+.trust-dot{width:5px;height:5px;border-radius:50%;background:var(--green)}
+
+/* MAIN WRAP */
+.wrap{max-width:860px;margin:0 auto;padding:0 1.5rem 5rem}
+
+/* PROGRESS */
+.progress-bar{display:flex;align-items:center;gap:.5rem;margin-bottom:2.5rem}
+.prog-step{display:flex;align-items:center;gap:.4rem;flex:1}
+.prog-circle{width:24px;height:24px;border-radius:50%;border:1px solid var(--b2);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:.58rem;color:var(--dim);flex-shrink:0;transition:all .3s}
+.prog-circle.done{background:var(--green);border-color:var(--green);color:#050508}
+.prog-circle.active{background:var(--led);border-color:var(--led);color:#050508;box-shadow:0 0 10px rgba(182,220,255,.3)}
+.prog-label{font-family:var(--fm);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dimmer)}
+.prog-label.active{color:var(--led)}
+.prog-line{flex:1;height:1px;background:var(--b2)}
+
+/* STEP CARDS */
+.step{display:none}
+.step.active{display:block;animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+.step-card{background:var(--panel);border:1px solid var(--b1);border-radius:6px;padding:2rem}
+.step-eyebrow{font-family:var(--fm);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--led);margin-bottom:.5rem;opacity:.7}
+.step-title{font-family:var(--fd);font-size:1.8rem;letter-spacing:.07em;color:#fff;margin-bottom:.4rem}
+.step-sub{font-family:var(--fs);font-style:italic;color:var(--dim);font-size:1rem;margin-bottom:1.8rem}
+
+/* FORM */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+@media(max-width:580px){.form-grid{grid-template-columns:1fr}}
+.form-full{grid-column:1/-1}
+
+.field{display:flex;flex-direction:column;gap:.35rem}
+.field label{font-family:var(--fm);font-size:.6rem;letter-spacing:.12em;color:var(--dim);text-transform:uppercase}
+.field input,.field select{background:var(--deep);border:1px solid var(--b2);border-radius:3px;padding:.65rem .9rem;color:var(--t);font-family:var(--fm);font-size:.8rem;outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
+.field input:focus,.field select:focus{border-color:var(--led);box-shadow:0 0 0 2px rgba(182,220,255,.08)}
+.field select option{background:var(--panel)}
+.field-note{font-family:var(--fm);font-size:.57rem;color:var(--dimmer);letter-spacing:.05em}
+
+/* OPCIONES TIPO PROYECTO */
+.tipo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-bottom:1.5rem}
+@media(max-width:520px){.tipo-grid{grid-template-columns:1fr 1fr}}
+.tipo-btn{background:var(--deep);border:1px solid var(--b2);border-radius:4px;padding:.9rem .5rem;cursor:pointer;transition:all .2s;text-align:center}
+.tipo-btn.sel{border-color:var(--led);background:rgba(182,220,255,.06);box-shadow:0 0 12px rgba(182,220,255,.1)}
+.tipo-icon{font-size:1.4rem;margin-bottom:.3rem}
+.tipo-label{font-family:var(--fm);font-size:.58rem;letter-spacing:.08em;color:var(--dim);text-transform:uppercase;line-height:1.3}
+.tipo-btn.sel .tipo-label{color:var(--led)}
+
+/* BOTONES */
+.btn{font-family:var(--fm);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;padding:.8rem 1.8rem;border-radius:3px;border:none;cursor:pointer;transition:all .2s}
+.btn-primary{background:var(--led);color:#050508;box-shadow:0 2px 14px rgba(182,220,255,.2)}
+.btn-primary:hover{opacity:.88;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--dim);border:1px solid var(--b2)}
+.btn-outline:hover{color:var(--t);border-color:var(--b3)}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#a8883e);color:#050508;box-shadow:0 2px 14px rgba(196,164,94,.2)}
+.btn-gold:hover{opacity:.88;transform:translateY(-1px)}
+.btn-wa{display:inline-flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;box-shadow:0 2px 14px rgba(37,211,102,.2)}
+.btn-wa:hover{opacity:.88;transform:translateY(-1px)}
+.btn-wa svg{width:16px;height:16px;flex-shrink:0}
+
+.step-footer{display:flex;justify-content:space-between;align-items:center;margin-top:1.8rem;padding-top:1.5rem;border-top:1px solid var(--b1)}
+
+/* RESULTADO PARCIAL (TEASER) */
+.teaser{margin-bottom:2rem}
+.teaser-banner{background:linear-gradient(135deg,rgba(182,220,255,.07),rgba(196,164,94,.06));border:1px solid rgba(182,220,255,.15);border-radius:6px;padding:2rem;text-align:center;position:relative;overflow:hidden}
+.teaser-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(182,220,255,.06),transparent);pointer-events:none}
+.teaser-eyebrow{font-family:var(--fm);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--led);margin-bottom:.8rem;opacity:.7}
+.teaser-title{font-family:var(--fd);font-size:clamp(1.2rem,4vw,1.8rem);letter-spacing:.07em;color:#fff;margin-bottom:.3rem}
+.teaser-impact{font-family:var(--fd);font-size:clamp(3rem,10vw,6rem);letter-spacing:.03em;line-height:1;color:var(--green);margin:.5rem 0}
+.teaser-sub{font-family:var(--fm);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dimmer);margin-bottom:1.5rem}
+
+.teaser-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem}
+@media(max-width:500px){.teaser-metrics{grid-template-columns:1fr 1fr}}
+.tm{background:rgba(5,5,8,.5);border:1px solid var(--b1);border-radius:4px;padding:1rem;text-align:center}
+.tm-n{font-family:var(--fd);font-size:1.8rem;letter-spacing:.04em;line-height:1;margin-bottom:.3rem}
+.tm-l{font-family:var(--fm);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dimmer)}
+
+/* BLUR GATE */
+.blur-section{position:relative}
+.blur-content{filter:blur(6px);user-select:none;pointer-events:none;opacity:.5}
+.blur-gate{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1.5rem;z-index:2}
+.blur-gate-title{font-family:var(--fd);font-size:clamp(1.3rem,4vw,2rem);letter-spacing:.08em;margin-bottom:.5rem}
+.blur-gate-sub{font-family:var(--fs);font-style:italic;color:var(--dim);margin-bottom:1.2rem;font-size:.95rem}
+
+/* DESGLOSE PREVIEW (borroso) */
+.breakdown-preview{background:var(--deep);border:1px solid var(--b1);border-radius:4px;overflow:hidden}
+.bp-row{display:flex;justify-content:space-between;padding:.6rem 1rem;border-bottom:1px solid var(--b1);font-family:var(--fm);font-size:.65rem}
+.bp-label{color:var(--dim)}
+.bp-val{color:var(--t);font-weight:500}
+.bp-val.pos{color:var(--green)}
+.bp-val.gold{color:var(--gold)}
+
+/* LEAD FORM */
+.lead-card{background:var(--panel);border:1px solid rgba(182,220,255,.15);border-radius:6px;padding:2rem}
+.lead-title{font-family:var(--fd);font-size:1.8rem;letter-spacing:.07em;margin-bottom:.4rem}
+.lead-sub{font-family:var(--fs);font-style:italic;color:var(--dim);margin-bottom:1.5rem}
+.lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.2rem}
+@media(max-width:500px){.lead-grid{grid-template-columns:1fr}}
+.lead-disclaimer{font-family:var(--fm);font-size:.58rem;color:var(--dimmer);margin-top:.8rem;letter-spacing:.05em;line-height:1.6}
+
+/* RESULTADO COMPLETO */
+#resultado-completo{display:none}
+.res-header{text-align:center;padding:2.5rem;background:linear-gradient(135deg,#050508,#08080e);border:1px solid var(--b1);border-radius:6px;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.res-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(182,220,255,.07),transparent);pointer-events:none}
+.res-tag{font-family:var(--fm);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--led);margin-bottom:.8rem;opacity:.7}
+.res-nombre{font-family:var(--fd);font-size:clamp(1.6rem,5vw,3rem);letter-spacing:.06em;color:#fff;margin-bottom:.3rem}
+.res-big{font-family:var(--fd);font-size:clamp(3.5rem,12vw,7rem);letter-spacing:.03em;line-height:.9;color:var(--green);margin:.5rem 0}
+.res-big-label{font-family:var(--fm);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--dimmer);margin-bottom:1.5rem}
+.res-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-top:1.5rem}
+@media(max-width:580px){.res-grid{grid-template-columns:1fr 1fr}}
+.res-metric{background:rgba(5,5,8,.6);border:1px solid var(--b1);border-radius:4px;padding:.9rem;text-align:center}
+.res-m-n{font-family:var(--fd);font-size:1.6rem;letter-spacing:.04em;line-height:1}
+.res-m-l{font-family:var(--fm);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dimmer);margin-top:.2rem}
+
+.breakdown-full{background:var(--panel);border:1px solid var(--b1);border-radius:5px;overflow:hidden;margin-bottom:1.5rem}
+.bf-title{font-family:var(--fm);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--led);padding:.9rem 1.2rem;border-bottom:1px solid var(--b1);opacity:.8}
+.bf-row{display:flex;justify-content:space-between;align-items:center;padding:.6rem 1.2rem;border-bottom:1px solid var(--b1);font-family:var(--fm);font-size:.67rem}
+.bf-row:last-child{border-bottom:none}
+.bf-row.total{background:rgba(182,220,255,.04);padding:.8rem 1.2rem}
+.bf-label{color:var(--dim)}
+.bf-val{text-align:right}
+.bf-val.pos{color:var(--green)}
+.bf-val.gold{color:var(--gold)}
+.bf-val.neg{color:var(--red)}
+.bf-val.total-val{color:var(--gold);font-size:.78rem}
+
+/* CTA FINAL */
+.cta-final{background:linear-gradient(135deg,rgba(182,220,255,.06),rgba(196,164,94,.05));border:1px solid rgba(182,220,255,.15);border-radius:6px;padding:2rem;text-align:center}
+.cta-final-title{font-family:var(--fd);font-size:clamp(1.5rem,5vw,2.5rem);letter-spacing:.07em;margin-bottom:.5rem}
+.cta-final-sub{font-family:var(--fs);font-style:italic;color:var(--dim);margin-bottom:1.5rem;font-size:1.05rem;max-width:480px;margin-left:auto;margin-right:auto}
+.cta-btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+.cta-note{font-family:var(--fm);font-size:.58rem;color:var(--dimmer);margin-top:.8rem;letter-spacing:.08em}
+
+/* SOCIAL PROOF */
+.proof-bar{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin:2rem 0;padding:1.2rem;border-top:1px solid var(--b1);border-bottom:1px solid var(--b1)}
+.proof-item{text-align:center}
+.proof-n{font-family:var(--fd);font-size:1.6rem;color:var(--gold);letter-spacing:.05em}
+.proof-l{font-family:var(--fm);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dimmer)}
+
+footer{border-top:1px solid var(--b1);padding:1.5rem 2rem;text-align:center;font-family:var(--fm);font-size:.58rem;color:var(--dimmer);letter-spacing:.08em}
+footer a{color:var(--led);text-decoration:none}
+
+@media(max-width:480px){
+  .hero{padding:3rem 1rem 2rem}
+  nav{padding:.9rem 1rem}
+  .step-card,.lead-card{padding:1.2rem}
+  .res-header{padding:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">INM三RXIA</a>
+  <a href="/" class="nav-back">← Inicio</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-pill">Simulador gratuito · Resultados en 60 segundos</div>
+  <h1>¿CUÁNTO MÁS VALE<br>TU PROYECTO<br><em>CON</em> <span class="gold">GEMELO DIGITAL?</span></h1>
+  <p class="hero-sub">Ingresa los datos de tu desarrollo y calculamos el impacto real en precio por m², velocidad de ventas y ahorro en marketing.</p>
+  <div class="hero-trust">
+    <div class="trust-item"><div class="trust-dot"></div>Sin registro previo</div>
+    <div class="trust-item"><div class="trust-dot"></div>Datos 100% privados</div>
+    <div class="trust-item"><div class="trust-dot"></div>Basado en datos reales del mercado</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- PROGRESS -->
+  <div class="progress-bar" id="progress-bar">
+    <div class="prog-step">
+      <div class="prog-circle active" id="pc1">1</div>
+      <div class="prog-label active" id="pl1">Tu proyecto</div>
+    </div>
+    <div class="prog-line"></div>
+    <div class="prog-step">
+      <div class="prog-circle" id="pc2">2</div>
+      <div class="prog-label" id="pl2">Situación actual</div>
+    </div>
+    <div class="prog-line"></div>
+    <div class="prog-step">
+      <div class="prog-circle" id="pc3">3</div>
+      <div class="prog-label" id="pl3">Resultados</div>
+    </div>
+  </div>
+
+  <!-- PASO 1: DATOS DEL PROYECTO -->
+  <div class="step active" id="step-1">
+    <div class="step-card">
+      <div class="step-eyebrow">Paso 1 de 2</div>
+      <div class="step-title">Tu proyecto</div>
+      <div class="step-sub">Cuéntanos qué estás desarrollando</div>
+
+      <div class="field form-full" style="margin-bottom:1.2rem">
+        <label>Tipo de proyecto</label>
+      </div>
+      <div class="tipo-grid">
+        <div class="tipo-btn sel" data-tipo="residencial_vertical" onclick="selTipo(this)">
+          <div class="tipo-icon">🏢</div>
+          <div class="tipo-label">Residencial<br>Vertical</div>
+        </div>
+        <div class="tipo-btn" data-tipo="residencial_horizontal" onclick="selTipo(this)">
+          <div class="tipo-icon">🏡</div>
+          <div class="tipo-label">Residencial<br>Horizontal</div>
+        </div>
+        <div class="tipo-btn" data-tipo="premium" onclick="selTipo(this)">
+          <div class="tipo-icon">✦</div>
+          <div class="tipo-label">Premium<br>/ Lujo</div>
+        </div>
+        <div class="tipo-btn" data-tipo="turistico" onclick="selTipo(this)">
+          <div class="tipo-icon">🌴</div>
+          <div class="tipo-label">Turístico<br>/ Vacacional</div>
+        </div>
+        <div class="tipo-btn" data-tipo="comercial" onclick="selTipo(this)">
+          <div class="tipo-icon">🏪</div>
+          <div class="tipo-label">Comercial<br>/ Oficinas</div>
+        </div>
+        <div class="tipo-btn" data-tipo="mixto" onclick="selTipo(this)">
+          <div class="tipo-icon">◈</div>
+          <div class="tipo-label">Mixto<br>/ Otro</div>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="field">
+          <label>Nombre del proyecto (opcional)</label>
+          <input type="text" id="p-nombre" placeholder="ej. Torre Zenith Oaxaca">
+        </div>
+        <div class="field">
+          <label>Ubicación</label>
+          <select id="p-ubicacion">
+            <option value="oaxaca">Oaxaca</option>
+            <option value="cdmx">Ciudad de México</option>
+            <option value="cancun">Cancún / Riviera Maya</option>
+            <option value="merida">Mérida</option>
+            <option value="guadalajara">Guadalajara</option>
+            <option value="monterrey">Monterrey</option>
+            <option value="otro">Otra ciudad</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Número de unidades / departamentos</label>
+          <input type="number" id="p-unidades" value="24" min="1" max="1000" step="1">
+        </div>
+        <div class="field">
+          <label>Precio promedio por unidad (MXN)</label>
+          <input type="number" id="p-precio" value="2500000" min="100000" step="50000">
+        </div>
+        <div class="field">
+          <label>Superficie promedio por unidad (m²)</label>
+          <input type="number" id="p-m2" value="80" min="10" step="5">
+        </div>
+        <div class="field">
+          <label>Etapa actual del proyecto</label>
+          <select id="p-etapa">
+            <option value="preventa">Preventa (sin construir)</option>
+            <option value="construccion">En construcción</option>
+            <option value="terminado">Terminado / Listo para entrega</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="step-footer">
+        <div></div>
+        <button class="btn btn-primary" onclick="goStep(2)">Siguiente →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASO 2: SITUACIÓN ACTUAL -->
+  <div class="step" id="step-2">
+    <div class="step-card">
+      <div class="step-eyebrow">Paso 2 de 2</div>
+      <div class="step-title">Situación actual</div>
+      <div class="step-sub">¿Cómo estás comercializando hoy?</div>
+
+      <div class="form-grid">
+        <div class="field">
+          <label>¿Tienen renders o visualizaciones?</label>
+          <select id="s-renders">
+            <option value="ninguno">No tenemos</option>
+            <option value="basicos">Renders básicos (2D / baja calidad)</option>
+            <option value="medios">Renders medios (3D estándar)</option>
+            <option value="buenos">Renders buenos (fotorrealistas)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>¿Tour virtual 360°?</label>
+          <select id="s-tour">
+            <option value="no">No</option>
+            <option value="si">Sí</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Tiempo promedio para cerrar una venta (meses)</label>
+          <input type="number" id="s-tiempo" value="6" min="1" max="36" step="0.5">
+        </div>
+        <div class="field">
+          <label>Presupuesto mensual en marketing (MXN)</label>
+          <input type="number" id="s-marketing" value="25000" min="0" step="1000">
+        </div>
+        <div class="field">
+          <label>Unidades vendidas hasta ahora</label>
+          <input type="number" id="s-vendidas" value="0" min="0" step="1">
+        </div>
+        <div class="field">
+          <label>Principal canal de ventas actual</label>
+          <select id="s-canal">
+            <option value="agentes">Agentes / corredores</option>
+            <option value="redes">Redes sociales propias</option>
+            <option value="portales">Portales (Inmuebles24, Lamudi)</option>
+            <option value="boca">Boca a boca / referidos</option>
+            <option value="ads">Publicidad pagada (Meta Ads / Google)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="step-footer">
+        <button class="btn btn-outline" onclick="goStep(1)">← Atrás</button>
+        <button class="btn btn-gold" onclick="calcular()">✦ Ver mi impacto</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASO 3: RESULTADOS -->
+  <div class="step" id="step-3">
+
+    <!-- TEASER (siempre visible) -->
+    <div class="teaser">
+      <div class="teaser-banner">
+        <div class="teaser-eyebrow">Impacto estimado para tu proyecto</div>
+        <div class="teaser-title">Con Gemelo Digital INMERXIA,<br><strong id="r-nombre-display">tu proyecto</strong> podría generar:</div>
+        <div class="teaser-impact" id="r-impacto-total">+$0</div>
+        <div class="teaser-sub">de ingresos adicionales sobre tu proyección actual</div>
+        <div class="teaser-metrics">
+          <div class="tm">
+            <div class="tm-n" style="color:var(--green)" id="r-premium">+0%</div>
+            <div class="tm-l">Premio en precio/m²</div>
+          </div>
+          <div class="tm">
+            <div class="tm-n" style="color:var(--led)" id="r-velocidad">0x</div>
+            <div class="tm-l">Más rápido cerrar ventas</div>
+          </div>
+          <div class="tm">
+            <div class="tm-n" style="color:var(--gold)" id="r-ahorro-mkt">$0</div>
+            <div class="tm-l">Ahorro en marketing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN BORROSA + GATE -->
+    <div class="blur-section" id="blur-section">
+      <div class="blur-content">
+        <div class="breakdown-preview">
+          <div class="bp-row"><span class="bp-label">Premio precio por m² adicional</span><span class="bp-val pos">$███,███ MXN</span></div>
+          <div class="bp-row"><span class="bp-label">Valor adicional por unidad</span><span class="bp-val pos">$███,███ MXN</span></div>
+          <div class="bp-row"><span class="bp-label">Reducción tiempo de venta</span><span class="bp-val">██ meses → ██ meses</span></div>
+          <div class="bp-row"><span class="bp-label">Costo de oportunidad recuperado</span><span class="bp-val pos">$█,███,███ MXN</span></div>
+          <div class="bp-row"><span class="bp-label">Ahorro en marketing 12 meses</span><span class="bp-val gold">$███,███ MXN</span></div>
+          <div class="bp-row"><span class="bp-label">Leads calificados adicionales estimados</span><span class="bp-val">██ leads/mes</span></div>
+          <div class="bp-row"><span class="bp-label">Inversión en Gemelo Digital INMERXIA</span><span class="bp-val neg">$██,███ MXN</span></div>
+          <div class="bp-row" style="background:var(--b1)"><span class="bp-label">ROI de contratar INMERXIA</span><span class="bp-val pos">██,███%</span></div>
+        </div>
+      </div>
+      <div class="blur-gate" id="blur-gate">
+        <div class="blur-gate-title">Desbloquea el análisis completo</div>
+        <div class="blur-gate-sub">Gratis. Sin compromiso. Recibes el desglose por WhatsApp en menos de 2 horas.</div>
+        <button class="btn btn-gold" onclick="showLeadForm()">Ver análisis completo →</button>
+      </div>
+    </div>
+
+    <!-- LEAD FORM (oculto hasta click) -->
+    <div id="lead-form" style="display:none;margin-top:1.5rem">
+      <div class="lead-card">
+        <div class="lead-title">Un paso más</div>
+        <div class="lead-sub">¿A dónde enviamos tu análisis personalizado?</div>
+        <div class="lead-grid">
+          <div class="field">
+            <label>Tu nombre *</label>
+            <input type="text" id="l-nombre" placeholder="Guillermo">
+          </div>
+          <div class="field">
+            <label>WhatsApp (con código país) *</label>
+            <input type="tel" id="l-wa" placeholder="525588069072">
+          </div>
+          <div class="field">
+            <label>Email (opcional)</label>
+            <input type="email" id="l-email" placeholder="hola@proyecto.com">
+          </div>
+          <div class="field">
+            <label>Tu rol en el proyecto</label>
+            <select id="l-rol">
+              <option>Desarrollador / Dueño</option>
+              <option>Director comercial</option>
+              <option>Inversionista</option>
+              <option>Agente / Broker</option>
+              <option>Arquitecto</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="submitLead()">✦ Ver mi análisis completo</button>
+        <div class="lead-disclaimer">Al continuar aceptas que INMERXIA se ponga en contacto contigo con el análisis de tu proyecto. Sin spam.</div>
+      </div>
+    </div>
+
+    <!-- RESULTADO COMPLETO (oculto hasta captura del lead) -->
+    <div id="resultado-completo">
+
+      <div class="res-header">
+        <div class="res-tag">Análisis completo · INMERXIA PropTech</div>
+        <div class="res-nombre" id="rc-nombre">Tu proyecto</div>
+        <div class="res-big" id="rc-impacto">+$0</div>
+        <div class="res-big-label">Impacto total estimado con Gemelo Digital</div>
+        <div class="res-grid">
+          <div class="res-metric"><div class="res-m-n" style="color:var(--green)" id="rc-pm">+0%</div><div class="res-m-l">Premio precio/m²</div></div>
+          <div class="res-metric"><div class="res-m-n" style="color:var(--led)" id="rc-vel">0 meses</div><div class="res-m-l">Reducción tiempo</div></div>
+          <div class="res-metric"><div class="res-m-n" style="color:var(--gold)" id="rc-mkt">$0</div><div class="res-m-l">Ahorro marketing</div></div>
+          <div class="res-metric"><div class="res-m-n" style="color:var(--amber)" id="rc-roi">0%</div><div class="res-m-l">ROI de contratar INMERXIA</div></div>
+        </div>
+      </div>
+
+      <div class="breakdown-full">
+        <div class="bf-title">Desglose detallado del impacto</div>
+        <div id="rc-breakdown"></div>
+      </div>
+
+      <div class="breakdown-full" style="margin-bottom:1.5rem">
+        <div class="bf-title">¿Qué incluye el Gemelo Digital INMERXIA para tu proyecto?</div>
+        <div id="rc-servicios"></div>
+      </div>
+
+      <!-- PROOF BAR -->
+      <div class="proof-bar">
+        <div class="proof-item"><div class="proof-n">+12%</div><div class="proof-l">Premio precio/m² promedio</div></div>
+        <div class="proof-item"><div class="proof-n">35%</div><div class="proof-l">Menos tiempo de venta</div></div>
+        <div class="proof-item"><div class="proof-n">2.4x</div><div class="proof-l">Más leads calificados</div></div>
+        <div class="proof-item"><div class="proof-n">5–7</div><div class="proof-l">Días de entrega</div></div>
+      </div>
+
+      <div class="cta-final">
+        <div class="cta-final-title">¿Listo para crear el<br>gemelo digital de <span id="rc-nombre-cta">tu proyecto</span>?</div>
+        <p class="cta-final-sub">Agendamos una llamada de 20 minutos. Te mostramos cómo se vería tu proyecto con renders 8K y tour 360°. Sin costo.</p>
+        <div class="cta-btns">
+          <button class="btn btn-wa" onclick="ctaWA()">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.76-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.522 5.845L.057 23.885l6.19-1.439A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.032-1.384l-.361-.214-3.735.868.937-3.63-.235-.374A9.818 9.818 0 012.182 12c0-5.422 4.396-9.818 9.818-9.818 5.422 0 9.818 4.396 9.818 9.818 0 5.422-4.396 9.818-9.818 9.818z"/></svg>
+            Quiero mi Gemelo Digital
+          </button>
+          <button class="btn btn-outline" onclick="goStep(1)">↺ Recalcular</button>
+        </div>
+        <div class="cta-note">Respuesta en menos de 2 horas · Consulta sin costo · Entrega en 5–7 días</div>
+      </div>
+
+    </div><!-- /#resultado-completo -->
+
+  </div><!-- /step-3 -->
+
+</div><!-- /.wrap -->
+
+<footer>
+  <a href="/">INMERXIA</a> · Gemelos Digitales Inmobiliarios · México · Los datos son estimados basados en benchmarks del mercado PropTech 2024–2026
+</footer>
+
+<script>
+// ── CONFIG DE IMPACTO POR TIPO DE PROYECTO ──────────────────────────
+const IMPACTO = {
+  residencial_vertical: { premiumPct:0.09,  velMult:1.38, mktSave:0.30, leads:2.2 },
+  residencial_horizontal:{ premiumPct:0.08, velMult:1.32, mktSave:0.28, leads:2.0 },
+  premium:               { premiumPct:0.14, velMult:1.45, mktSave:0.35, leads:2.6 },
+  turistico:             { premiumPct:0.16, velMult:1.50, mktSave:0.40, leads:2.8 },
+  comercial:             { premiumPct:0.07, velMult:1.28, mktSave:0.25, leads:1.8 },
+  mixto:                 { premiumPct:0.10, velMult:1.35, mktSave:0.30, leads:2.2 },
+};
+
+const COSTO_INMERXIA = 18500; // MXN base package
+
+const UBICACION_BOOST = {
+  cancun:1.15, merida:1.05, cdmx:1.08, oaxaca:1.0,
+  guadalajara:1.03, monterrey:1.04, otro:1.0
+};
+
+let tipoSel = 'residencial_vertical';
+let resultados = {};
+
+// ── TIPO SELECTOR ────────────────────────────────────────────────────
+function selTipo(el){
+  document.querySelectorAll('.tipo-btn').forEach(b=>b.classList.remove('sel'));
+  el.classList.add('sel');
+  tipoSel = el.dataset.tipo;
+}
+
+// ── STEPS ────────────────────────────────────────────────────────────
+function goStep(n){
+  document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('step-'+n)?.classList.add('active');
+  updateProgress(n);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function updateProgress(n){
+  for(let i=1;i<=3;i++){
+    const c=document.getElementById('pc'+i);
+    const l=document.getElementById('pl'+i);
+    c.className='prog-circle'+(i<n?' done':i===n?' active':'');
+    l.className='prog-label'+(i===n?' active':'');
+    if(i<n) c.textContent='✓';
+    else c.textContent=i;
+  }
+}
+
+// ── CALCULAR ─────────────────────────────────────────────────────────
+function calcular(){
+  const nombre    = document.getElementById('p-nombre').value||'Tu proyecto';
+  const ubicacion = document.getElementById('p-ubicacion').value;
+  const unidades  = +document.getElementById('p-unidades').value||1;
+  const precio    = +document.getElementById('p-precio').value||0;
+  const m2        = +document.getElementById('p-m2').value||80;
+  const etapa     = document.getElementById('p-etapa').value;
+  const tiempoAct = +document.getElementById('s-tiempo').value||6;
+  const mktMes    = +document.getElementById('s-marketing').value||0;
+  const vendidas  = +document.getElementById('s-vendidas').value||0;
+  const renders   = document.getElementById('s-renders').value;
+
+  const unidadesRestantes = Math.max(0, unidades - vendidas);
+  const cfg = IMPACTO[tipoSel];
+  const boost = UBICACION_BOOST[ubicacion]||1.0;
+
+  // Ajuste por situación de renders actual
+  const renderBoost = {ninguno:1.0, basicos:0.7, medios:0.4, buenos:0.15};
+  const adjustedPremium = cfg.premiumPct * (renderBoost[renders]||1.0);
+
+  // 1. PREMIO EN PRECIO
+  const precioPorM2 = precio / m2;
+  const premiumPorM2 = precioPorM2 * adjustedPremium * boost;
+  const premiumPorUnidad = premiumPorM2 * m2;
+  const premiumTotal = premiumPorUnidad * unidadesRestantes;
+
+  // 2. VELOCIDAD DE VENTAS (costo de oportunidad)
+  const tiempoNuevo = tiempoAct / cfg.velMult;
+  const mesesAhorrados = tiempoAct - tiempoNuevo;
+  const costoOpMensual = (precio * unidadesRestantes * 0.008); // 0.8% del valor/mes = costo financiero típico
+  const costoOpRecuperado = costoOpMensual * mesesAhorrados;
+
+  // 3. AHORRO EN MARKETING
+  const mktAnual = mktMes * 12;
+  const mktAhorro = mktAnual * cfg.mktSave;
+
+  // 4. LEADS ADICIONALES
+  const leadsAdicionales = Math.round((unidadesRestantes / tiempoNuevo) * (cfg.leads - 1));
+
+  // TOTAL
+  const impactoTotal = premiumTotal + costoOpRecuperado + mktAhorro;
+  const roiInmerxia = ((impactoTotal / COSTO_INMERXIA) * 100);
+
+  resultados = {
+    nombre, unidades, unidadesRestantes, precio, m2, precioPorM2,
+    tiempoAct, tiempoNuevo: tiempoNuevo.toFixed(1), mesesAhorrados: mesesAhorrados.toFixed(1),
+    premiumPct: (adjustedPremium*100).toFixed(1),
+    premiumPorM2, premiumPorUnidad, premiumTotal,
+    costoOpRecuperado, mktAhorro, mktAnual,
+    leadsAdicionales, impactoTotal, roiInmerxia,
+    tipoSel, etapa, cfg, ubicacion
+  };
+
+  // Render teaser
+  const M = n=>new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(n);
+  document.getElementById('r-nombre-display').textContent = nombre||'tu proyecto';
+  document.getElementById('r-impacto-total').textContent = '+'+M(impactoTotal);
+  document.getElementById('r-premium').textContent = '+'+resultados.premiumPct+'%';
+  document.getElementById('r-velocidad').textContent = cfg.velMult.toFixed(1)+'x';
+  document.getElementById('r-ahorro-mkt').textContent = M(mktAhorro);
+
+  goStep(3);
+}
+
+function showLeadForm(){
+  document.getElementById('blur-gate').style.display='none';
+  document.getElementById('blur-content').style.filter='none';
+  document.getElementById('blur-content').style.opacity='1';
+  document.getElementById('blur-content').style.pointerEvents='auto';
+  document.getElementById('blur-content').style.userSelect='auto';
+  document.getElementById('lead-form').style.display='block';
+  document.getElementById('lead-form').scrollIntoView({behavior:'smooth'});
+}
+
+function submitLead(){
+  const nombre = document.getElementById('l-nombre').value.trim();
+  const wa     = document.getElementById('l-wa').value.trim();
+  if(!nombre){ alert('Por favor ingresa tu nombre.'); return; }
+  if(!wa)    { alert('Por favor ingresa tu WhatsApp.'); return; }
+
+  renderResultadoCompleto();
+
+  // Enviar WA a INMERXIA con datos del lead
+  const M = n=>new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(n);
+  const r = resultados;
+  const rol = document.getElementById('l-rol').value;
+  const email = document.getElementById('l-email').value;
+
+  const msg = `🎭 *NUEVO LEAD — Simulador INMERXIA*
+
+👤 *${nombre}* (${rol})
+📱 ${wa}${email?' · '+email:''}
+
+🏗️ *Proyecto:* ${r.nombre||'Sin nombre'}
+📍 Ubicación: ${r.ubicacion}
+🏢 Tipo: ${r.tipoSel.replace(/_/g,' ')}
+🔢 Unidades: ${r.unidades} (${r.unidadesRestantes} restantes)
+💰 Precio/unidad: ${M(r.precio)}
+📐 Superficie: ${r.m2}m²
+⏱️ Tiempo actual de venta: ${r.tiempoAct} meses
+
+*RESULTADOS DEL SIMULADOR:*
+✅ Impacto total estimado: *${M(r.impactoTotal)}*
+📈 Premio en precio/m²: +${r.premiumPct}%
+⚡ Ventas ${r.cfg.velMult.toFixed(1)}x más rápido
+💵 Ahorro en marketing: ${M(r.mktAhorro)}
+🚀 ROI de contratar INMERXIA: *${Math.round(r.roiInmerxia).toLocaleString('es-MX')}%*
+
+_Generado por simulador inmerxia.com.mx/simulador/_`;
+
+  window.open('https://wa.me/525588069072?text='+encodeURIComponent(msg),'_blank');
+
+  document.getElementById('lead-form').style.display='none';
+  document.getElementById('resultado-completo').style.display='block';
+  document.getElementById('resultado-completo').scrollIntoView({behavior:'smooth'});
+}
+
+function renderResultadoCompleto(){
+  const M = n=>new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(n);
+  const r = resultados;
+
+  document.getElementById('rc-nombre').textContent = r.nombre||'Tu proyecto';
+  document.getElementById('rc-nombre-cta').textContent = r.nombre||'tu proyecto';
+  document.getElementById('rc-impacto').textContent = '+'+M(r.impactoTotal);
+  document.getElementById('rc-pm').textContent = '+'+r.premiumPct+'%';
+  document.getElementById('rc-vel').textContent = '-'+r.mesesAhorrados+' meses';
+  document.getElementById('rc-mkt').textContent = M(r.mktAhorro);
+  document.getElementById('rc-roi').textContent = Math.round(r.roiInmerxia).toLocaleString('es-MX')+'%';
+
+  // Desglose
+  const rows = [
+    {l:`Premio precio/m² (+${r.premiumPct}% × ${r.unidadesRestantes} unidades)`, v:'+'+M(r.premiumTotal), cls:'pos'},
+    {l:`Premio por unidad adicional`,v:'+'+M(r.premiumPorUnidad),cls:'pos'},
+    {l:`Costo de oportunidad recuperado (${r.mesesAhorrados} meses menos)`,v:'+'+M(r.costoOpRecuperado),cls:'pos'},
+    {l:`Ahorro en marketing (${(r.cfg.mktSave*100).toFixed(0)}% del presupuesto anual)`,v:'+'+M(r.mktAhorro),cls:'pos gold'},
+    {l:`Leads calificados adicionales estimados`,v:`+${r.leadsAdicionales} leads/ciclo`},
+    {l:'Tiempo de venta actual',v:`${r.tiempoAct} meses`},
+    {l:'Tiempo de venta con Gemelo Digital',v:`${r.tiempoNuevo} meses`},
+    {l:'Inversión Gemelo Digital INMERXIA (paquete base)',v:`${M(COSTO_INMERXIA)}`,cls:'neg'},
+    {l:'ROI de contratar INMERXIA',v:`${Math.round(r.roiInmerxia).toLocaleString('es-MX')}%`,cls:'pos',total:true},
+    {l:'Impacto total estimado',v:'+'+M(r.impactoTotal),cls:'gold',total:true},
+  ];
+  document.getElementById('rc-breakdown').innerHTML = rows.map(row=>`
+    <div class="bf-row ${row.total?'total':''}">
+      <span class="bf-label">${row.l}</span>
+      <span class="bf-val ${row.cls||''} ${row.total?'total-val':''}">${row.v}</span>
+    </div>
+  `).join('');
+
+  // Servicios recomendados
+  const servicios = {
+    residencial_vertical:['Renders 8K × 8 vistas clave','Tour 360° interactivo','Video IA walkthrough 90s','PWA instalable con dashboard de preventa','Campaña Meta Ads con creative IA'],
+    residencial_horizontal:['Renders 8K exteriores e interiores','Tour 360° por prototipo','Video drone + IA','PWA con galería y formulario de contacto'],
+    premium:['Renders 8K fotorrealistas luxury','Tour 360° + realidad aumentada','Video IA cinematic 2min','PWA premium con calculadora de ROI embebida','Pitch de inversión completo'],
+    turistico:['Renders 8K lifestyle vacacional','Tour 360° de todas las amenidades','Video IA para Airbnb / Booking','Dashboard de proyección de renta vacacional','Campaña Google + Meta geo-targeted'],
+    comercial:['Renders 8K de espacios tipo','Tour 360° de planta arquitectónica','Pitch de inversión para arrendatarios','Brochure digital interactivo'],
+    mixto:['Renders 8K por tipología','Tour 360° multi-zona','Video IA de concepto','PWA con catálogo de unidades','Pitch de inversión personalizado'],
+  };
+  const lista = servicios[r.tipoSel]||servicios.mixto;
+  document.getElementById('rc-servicios').innerHTML = lista.map(s=>`
+    <div class="bf-row">
+      <span class="bf-label" style="color:var(--t)">✓ ${s}</span>
+      <span class="bf-val" style="color:var(--green)">Incluido</span>
+    </div>
+  `).join('')+`
+    <div class="bf-row total">
+      <span class="bf-label">Tiempo de entrega</span>
+      <span class="bf-val total-val">5–7 días hábiles</span>
+    </div>
+  `;
+}
+
+function ctaWA(){
+  const M = n=>new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(n);
+  const r = resultados;
+  const msg = `Hola INMERXIA 👋 Simulé el impacto de un gemelo digital para *${r.nombre||'mi proyecto'}* y quiero agendar una llamada.\n\nImpacto estimado: *${M(r.impactoTotal)}*\nROI: ${Math.round(r.roiInmerxia).toLocaleString('es-MX')}%`;
+  window.open('https://wa.me/525588069072?text='+encodeURIComponent(msg),'_blank');
+}
+
+if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js',{scope:'/'}).catch(e=>console.warn('[SW]',e)));
+</script>
+</body>
+</html>
